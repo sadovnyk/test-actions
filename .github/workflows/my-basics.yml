@@ -20,6 +20,9 @@ jobs:
                 echo "This is my first action!" 
                 echo "This is the next step in my first action!"
                 echo "My app name is ${{ env.MY_APP_NAME }}"
+            - name: Linux test
+              run: ls -la
+              
     my-first-action:
         runs-on: ubuntu-latest
         needs: my-second-action
