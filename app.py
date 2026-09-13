@@ -24,3 +24,7 @@ if __name__ == "__main__":
 
     print(f"Активних користувачів: {len(active)}")
     print(f"Середній вік активних: {avg_age}")
+    print("Активні користувачі:")
+    for user in active:
+        print(f"- {user['name']}, вік: {user['age']}")
+    #test
