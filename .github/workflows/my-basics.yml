@@ -26,6 +26,8 @@ jobs:
               run: ls -la
 
     my-first-action:
+        env:
+            VAR1: "This is my first action!"
         runs-on: ubuntu-latest
         needs: my-second-action
         steps:
@@ -35,3 +37,7 @@ jobs:
               run: |
                 echo "My package name is ${{ env.PACKAGE_NAME }}"
                 echo "This is the next step in my second action!"
+
+            - name: Local Variable
+              run: |
+                echo "This is my local variable: ${{ env.VAR1 }}"
