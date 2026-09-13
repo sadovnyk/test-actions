@@ -2,7 +2,7 @@
 name: My-GitHub-Actions
 env:
     MY_APP_NAME: "my-ci-app"
-    PACKAGE_NAME: "my-package is $ {{ github.sha }}"
+    PACKAGE_NAME: "my-package is ${{ github.sha }}"
 on:
     push:
         branches:
@@ -19,7 +19,7 @@ jobs:
                 echo "Hello, ${{ github.actor }}!"
                 echo "This is my first action!" 
                 echo "This is the next step in my first action!"
-                echo "My app name is $ {{ env.MY_APP_NAME }}"
+                echo "My app name is ${{ env.MY_APP_NAME }}"
     my-first-action:
         runs-on: ubuntu-latest
         needs: my-second-action
@@ -28,5 +28,5 @@ jobs:
               run: echo "This is my second action!"
             - name: Package name
               run: |
-                echo "My package name is $ {{ env.PACKAGE_NAME }}"
+                echo "My package name is ${{ env.PACKAGE_NAME }}"
                 echo "This is the next step in my second action!"
