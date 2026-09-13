@@ -23,7 +23,11 @@ jobs:
                 echo "This is the next step in my first action!"
                 echo "My app name is ${{ env.MY_APP_NAME }}"
             - name: Linux test
-              run: ls -la
+              env:
+                VAR1: "This is super local!"
+              run: |
+                echo "This is my local variable: ${{ env.VAR1 }}"
+                ls -la
 
     my-first-action:
         env:
