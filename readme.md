@@ -4,6 +4,3 @@ Status of the last deployment: <br>
 </a>
 
 Just test
-вівівів
-
-csdsdsd
