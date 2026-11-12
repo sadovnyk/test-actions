@@ -1,0 +1,33 @@
+name: Second Workflow
+on: [push]
+jobs:
+  run-first-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: display_text_lin
+        run: echo "Hello Linux!" 
+      - name: node
+        run: node -v
+
+  run-second-command:
+    runs-on: windows-latest
+    steps:
+      - name: display_text_win
+        run: echo Hello Windows! 
+      - name: node
+        run: node -v
+  run-third-command:
+    runs-on: ubuntu-latest
+    needs: run-first-command
+    steps:
+      - name: display_text_win
+        run: echo "I've completed because of 'first job'!"
+      #- uses: actions/checkout@4
+      - name: git copy
+        run: |
+            git init
+            git remote add origin https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git
+            git fetch origin
+            git switch main
+      - name: List of files
+        run: ls -l 

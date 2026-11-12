@@ -9,4 +9,4 @@ jobs:
       - name: node and npm
         run: |
          node -v
-         npm -v
+         npm  -v

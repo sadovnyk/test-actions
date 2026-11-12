@@ -1,0 +1,18 @@
+name: Third Workflow
+on:
+    workflow_run:
+        workflows: [Second Workflow] #start this workflow and then Third Workflow. (max 3 - Second Workflow -> Third Workflow -> Fourth Workflow. IGNORE AFTER )
+        types:
+            - completed 
+
+jobs:
+  success-command:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+        - run: echo "Success"
+  failure-command:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+        - run: echo "Failured"
