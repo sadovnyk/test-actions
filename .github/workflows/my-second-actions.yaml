@@ -1,5 +1,8 @@
 name: Second Workflow
-on: [push]
+on:
+  push:
+    branches-ignore:
+      - main
 jobs:
   run-first-command:
     runs-on: ubuntu-latest

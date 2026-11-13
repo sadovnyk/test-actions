@@ -1,0 +1,26 @@
+name: First Workflow
+on:
+  push:
+    branches:
+      - main
+      #- "fix/*" # fix/page fix/about; CAN'T - fix/topic/about
+      #- "fix/**" # CAN - fix/topic/about
+      #- "!fix/smt" # Order is important
+    # branches-ignore: # You have to choose between branches and branches-ignore
+     # - "page/blog"
+    #tags:
+     # - "v1.*"
+     # - "!v1.2.*"
+    paths:
+      - "**.txt"
+      - "**.py"
+jobs:
+  run-first-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: display_text
+        run: echo "Hello World!" 
+      - name: node and npm
+        run: |
+         node -v
+         npm  -v
