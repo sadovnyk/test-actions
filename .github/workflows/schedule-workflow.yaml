@@ -1,0 +1,18 @@
+name: Schedule-workflow
+on:
+    schedule:
+        - cron: "*/10 * * * *"
+
+jobs:
+    py-test:
+        runs-on: ubuntu-latest
+        timeout-minutes: 5
+        steps:
+            - uses: actions/checkout@v7
+            - uses: actions/setup-python@v7
+              with:
+                python-version: '3.12'
+            - run: |
+               ls -l
+               pip install -r requirements.txt
+            - run: pytest -v test_app.py
