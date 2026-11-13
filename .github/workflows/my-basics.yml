@@ -1,5 +1,7 @@
 name: First Workflow
-on: [push]
+on: 
+  issues:
+    types: [opened, deleted]
 jobs:
   run-first-command:
     runs-on: ubuntu-latest
