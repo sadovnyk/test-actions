@@ -1,7 +1,7 @@
 name: Schedule-workflow
 on:
     schedule:
-        - cron: "*/10 * * * *"
+        - cron: "45 20 * * FRI"
 
 jobs:
     py-test:
