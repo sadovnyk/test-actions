@@ -1,0 +1,16 @@
+name: First Workflow
+on:
+    workflow_dispatch:
+        inputs:
+            title_test:
+                description: Type something
+                type: string
+                required: true
+                default: "Hello World"
+
+jobs:
+  run-first-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: display_text
+        run: echo "Title ${{ inputs.title_test }}"
